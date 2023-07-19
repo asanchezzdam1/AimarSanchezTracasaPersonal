@@ -57,7 +57,8 @@ namespace practicaModulo6C_Proyecto1
             var vehiculo2 = new Vehiculos(marca1, modelo1);
             var vehiculo3 = new Vehiculos(ano2, color2,
                                          marca2, modelo2);
-            Console.WriteLine("Los vehiculos creados son los siguientes:");
+        
+            Console.WriteLine("\nLos vehiculos creados son los siguientes:");
             Console.WriteLine("Vehiculo 1, constructor que recibe año de compra y color");
             Console.WriteLine("Año de matriculación: " + vehiculo1.anoCompra + "\nColor: " + vehiculo1.color);
             Console.WriteLine("Vehiculo 2, constructor que recibe la marca y modelo");
