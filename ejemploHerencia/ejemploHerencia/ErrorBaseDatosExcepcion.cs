@@ -15,9 +15,6 @@ namespace ejemploHerencia
             this.mensaje = mensaje;
             this.fechaHoraExcepcion = fechaHoraExcepcion;
         }
-        //public string toString()
-        //{
-        //    return mensaje + " a la hora " + fechaHoraExcepcion;
-        //}
+
     }
 }
