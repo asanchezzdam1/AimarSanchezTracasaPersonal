@@ -25,7 +25,7 @@ namespace ejemploHerencia
         public string PlazaParking()
         {
             // TODO: Conectar a BBDD
-            return  new ErrorBaseDatosExcepcion("Error al contectar a BBDD", DateTime.Now).toString();
+            throw  new ErrorBaseDatosExcepcion("Error al contectar a BBDD", DateTime.Now);
             //return plaza ? numero.ToString() : "No tiene plaza";
         }
         public override string ToString()

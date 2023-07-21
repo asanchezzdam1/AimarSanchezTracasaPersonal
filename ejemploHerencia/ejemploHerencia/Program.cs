@@ -34,17 +34,13 @@
             catch (Exception ex)
             {
 
-                //throw;
+                Console.WriteLine(ex.Message);
             }
             Administrador administrador3 = new Administrador("Julene", false);
             empleados.Add(administrador3);
             var resultado1 = from emp in empleados where emp.nombre.ToLower().StartsWith("j") orderby emp.nombre ascending select emp;
             foreach (var emp in resultado1)
-                emp.CalculoVacaciones();
-            foreach (var emp in empleados)
                 Console.WriteLine(emp.ToString());
-
-
         }
     }
 }
