@@ -32,12 +32,9 @@ namespace ejemploHerencia
         }
         public override string ToString()
         {
-            string str = "El empleado pertenece al grupo: Trabajador y su nombre es: " + nombre  + ". Trabaja en el turno de " + turno;
-            if (!externo)
-                str += " y es trabajador de la empresa";
-            else
-                str += " y es trabajador de la subcontrata: " + queEmpresa;
-            str += ". Y tiene " + diasVacaciones + " dias de vacaciones.";
+            string str = base.ToString();
+            if (!externo) str += " y es trabajador de la empresa";
+            else str += " y es trabajador de la subcontrata: " + queEmpresa;
             return str;
         }
     }

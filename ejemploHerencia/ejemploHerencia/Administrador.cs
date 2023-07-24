@@ -30,12 +30,11 @@ namespace ejemploHerencia
         }
         public override string ToString()
         {
-            string str = "El empleado pertenece al grupo: Administrador y su nombre es: " + nombre;
+            string str = base.ToString();
             if (plaza)
-                str += ". El Adminstrador tiene plaza y su numero de plaza es: " + numero.ToString();
+                str += " El " + GetType().Name + " tiene plaza y su numero de plaza es: " + numero.ToString();
             else 
-                str += ". El Administrado no tiene plaza de garaje.";
-            str += ". Y tiene " + diasVacaciones + " dias de vacaciones.";
+                str += " El " + GetType().Name + " no tiene plaza de garaje.";
             return str;
         }
     }

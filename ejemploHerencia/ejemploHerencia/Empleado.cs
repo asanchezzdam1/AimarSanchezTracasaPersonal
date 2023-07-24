@@ -23,7 +23,7 @@ namespace ejemploHerencia
         }
         public override string ToString()
         {
-            return "El empleado pertenece al grupo: Empleado y su nombre es: " + nombre + ". Y tiene " + diasVacaciones + " dias de vacaciones.";
+            return "El empleado pertenece al grupo: " +  GetType().Name + " su nombre es: " + nombre + ". Y tiene " + diasVacaciones + " dias de vacaciones.";
         }
     }
 }
