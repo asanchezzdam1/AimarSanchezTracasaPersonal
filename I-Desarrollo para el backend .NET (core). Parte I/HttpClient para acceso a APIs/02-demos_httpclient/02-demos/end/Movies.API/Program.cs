@@ -27,7 +27,7 @@ namespace Movies.API
                 {
                     var context = scope.ServiceProvider.GetService<MoviesContext>();
                     // delete the DB if it exists
-                    context.Database.EnsureDeleted();
+                    context.Database.EnsureDeleted();    
                     // migrate the DB - this will also seed the DB with dummy data
                     context.Database.Migrate();
                 }
