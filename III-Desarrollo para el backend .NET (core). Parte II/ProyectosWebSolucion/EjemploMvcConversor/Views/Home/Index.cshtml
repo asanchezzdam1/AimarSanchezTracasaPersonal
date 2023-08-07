@@ -3,7 +3,14 @@
     ViewData["Title"] = "Home Page";
 }
 
+Son @Model.Count() monedas
+
+La primera moneda es @Model.Take(1).Select(m=>m.CodigoMoneda)
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @foreach (var moneda in Model)
+    {
+            <h2>@moneda.CodigoMoneda</h2>
+            <h3>@moneda.Descripcion</h3>
+    }
 </div>
