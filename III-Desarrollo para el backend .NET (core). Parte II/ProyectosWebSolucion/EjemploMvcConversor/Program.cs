@@ -1,5 +1,6 @@
 using EjemploMvcConversor.Models;
 using EjemploMvcConversor.Servicios;
+using Microsoft.EntityFrameworkCore;
 
 namespace EjemploMvcConversor
 {
@@ -18,6 +19,11 @@ namespace EjemploMvcConversor
 
             //++ 1-Add services to the container.
             builder.Services.AddControllersWithViews();  // MVC
+
+            builder.Services.AddDbContext<ContextoConversor>(options =>
+            {
+                options.UseSqlServer(builder.Configuration["ConnectionStrings:ConexionDatos"]);
+            });
 
             builder.Services.AddScoped<IServicioMonedas,ServicioCriptoMonedas>(); 
             builder.Services.AddScoped<IRepositorioMonedas,RepositorioMonedasMemoria>(); 
