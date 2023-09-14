@@ -7,8 +7,7 @@ namespace Context
     {
         public ContextoConversor(DbContextOptions<ContextoConversor> opciones) : base(opciones)
         {
-        }
-        
+        }        
         public DbSet<Usuario> usuarios { get; set; }
     }
 }

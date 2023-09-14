@@ -7,7 +7,7 @@ namespace API.Profiles
     {
         public UsuarioProfile()
         {
-            CreateMap<UsuarioVerDto, Usuario>();
+            CreateMap<Usuario, UsuarioVerDto>();
         }
     }
 }
