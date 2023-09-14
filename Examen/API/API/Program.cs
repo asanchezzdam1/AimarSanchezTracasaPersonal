@@ -9,6 +9,7 @@ namespace API
     {
         public static void Main(string[] args)
         {
+            //++1
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllers(configure =>
@@ -39,7 +40,7 @@ namespace API
                                      .AllowAnyHeader();
                                  });
                          });
-
+            //++2
             var app = builder.Build();
             if (app.Environment.IsDevelopment())
             {
