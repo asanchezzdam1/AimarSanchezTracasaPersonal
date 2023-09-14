@@ -24,7 +24,7 @@ namespace API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            builder.Services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
+            builder.Services.AddScoped<IRepositorioUsuarios, RepositorioUsuarios>();
             builder.Services.AddDbContext<ContextoConversor>(options =>
                         {
                             options.UseSqlServer(builder.Configuration["ConnectionStrings:ConexionDatos"]);
