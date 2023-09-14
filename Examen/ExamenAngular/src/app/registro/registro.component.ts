@@ -37,6 +37,9 @@ export class RegistroComponent implements OnInit{
         this.sub =this.registroService.getPersonas().subscribe(
             (personas) => {
             this.personas = personas;
+            },
+            (error: any) =>{
+                console.log("Ha habido un error:"+error)
             }
           );
     }
