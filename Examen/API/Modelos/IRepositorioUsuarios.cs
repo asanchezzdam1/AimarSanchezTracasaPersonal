@@ -4,7 +4,7 @@ namespace Modelos
 {
     public interface IRepositorioUsuarios
     {
-        Task<Usuario> postUsuario(Usuario usuario);
+        Task<Usuario> postUsuario(UsuarioAltaDto usuario);
         IEnumerable<UsuarioVerDto> getUsuarios();
     }
 }

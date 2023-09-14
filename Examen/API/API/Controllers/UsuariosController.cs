@@ -30,14 +30,7 @@ namespace API.Controllers
         [Route("registro")]
         public async Task<ActionResult<UsuarioVerDto>> registro([FromBody] UsuarioAltaDto registro)
         {
-            Usuario usuarioAlta = new()
-            {
-                id = Guid.NewGuid().ToString(),
-                nombre = registro.nombre,
-                telefono = registro.telefono,
-                fechaNacimiento = registro.fechaNacimiento
-            };
-            var usuario = await repositorioUsuarios.postUsuario(usuarioAlta);
+            var usuario = await repositorioUsuarios.postUsuario(registro);
             var usuarioVer = mapper.Map<UsuarioVerDto>(usuario);
             return Ok(usuarioVer);
         }

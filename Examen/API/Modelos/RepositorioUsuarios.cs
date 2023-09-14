@@ -12,15 +12,22 @@ namespace Modelos
             this.context = context;
         }
 
-        public async Task<Usuario> postUsuario(Usuario usuario)
+        public async Task<Usuario> postUsuario(UsuarioAltaDto usuario)
         {
-            Usuario existeIdUsuario = context.usuarios.FirstOrDefault(m => m.id == usuario.id);
+            Usuario usuarioAlta = new()
+            {
+                id = Guid.NewGuid().ToString(),
+                nombre = usuario.nombre,
+                telefono = usuario.telefono,
+                fechaNacimiento = usuario.fechaNacimiento
+            };
+            var existeIdUsuario = context.usuarios.FirstOrDefault(m => m.id == usuarioAlta.id);
             if (existeIdUsuario == null)
             {
-                context.Add(usuario);
-                context.SaveChanges();
+                context.Add(usuarioAlta);
+                await context.SaveChangesAsync();
             }
-            return usuario;
+            return usuarioAlta;
         }
         public IEnumerable<UsuarioVerDto> getUsuarios()
         {
