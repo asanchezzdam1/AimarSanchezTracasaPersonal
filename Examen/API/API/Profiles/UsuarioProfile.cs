@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Entidades;
 
 namespace API.Profiles
 {
@@ -7,8 +8,6 @@ namespace API.Profiles
         public UsuarioProfile()
         {
             CreateMap<UsuarioVerDto, Usuario>();
-
-            CreateMap<Usuario, UsuarioActualizarDto>();
         }
     }
 }

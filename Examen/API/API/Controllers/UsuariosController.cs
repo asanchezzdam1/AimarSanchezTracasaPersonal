@@ -40,9 +40,7 @@ namespace API.Controllers
                     fechaNacimiento = registro.fechaNacimiento
                 };
                 var usuario = await repositorioUsuarios.postUsuario(usuarioAlta);
-
                 var usuarioVer = mapper.Map<UsuarioVerDto>(usuario);
-
                 return Ok(usuarioVer);
             }
         }
