@@ -6,6 +6,5 @@ namespace Modelos
     {
         Task<Usuario> postUsuario(Usuario usuario);
         IEnumerable<UsuarioVerDto> getUsuarios();
-        Task<Usuario> getUser(string id);
     }
 }

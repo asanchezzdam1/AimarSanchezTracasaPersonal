@@ -11,8 +11,6 @@ namespace API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
             builder.Services.AddControllers(configure =>
                     {
                         configure.ReturnHttpNotAcceptable = true;
@@ -24,6 +22,7 @@ namespace API
                     });
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             builder.Services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
             builder.Services.AddDbContext<ContextoConversor>(options =>
                         {
@@ -42,21 +41,19 @@ namespace API
                          });
 
             var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseCors("AllowAll");
             app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+                        {
+                            endpoints.MapControllers();
+                        });
             app.MapControllers();
-
             app.Run();
         }
     }

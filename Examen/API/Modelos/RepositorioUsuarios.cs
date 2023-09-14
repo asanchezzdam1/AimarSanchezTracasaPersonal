@@ -16,13 +16,21 @@ namespace Modelos
         {
 
         }
-        public async IEnumerable<UsuarioVerDto> getUsuarios()
+        public IEnumerable<UsuarioVerDto> getUsuarios()
         {
+            var fechaMayor21 = DateTime.Now;
+            fechaMayor21 = fechaMayor21.AddYears(-21);
 
-        }
-        public async Task<Usuario> getUser(string id)
-        {
-
+            var consultaLinq = from h in _context.usuarios
+                        where h.fechaNacimiento < fechaMayor21
+                        orderby h.nombre descending
+                        select new UsuarioVerDto
+                        {
+                            nombre = h.nombre,
+                            telefono = h.telefono,
+                            fechaNacimiento = h.fechaNacimiento,
+                        };
+            return consultaLinq.Take(10);
         }
     }
 }
