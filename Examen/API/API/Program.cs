@@ -24,7 +24,7 @@ namespace API
                     });
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            //builder.Services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
+            builder.Services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
             builder.Services.AddDbContext<ContextoConversor>(options =>
                         {
                             options.UseSqlServer(builder.Configuration["ConnectionStrings:ConexionDatos"]);
