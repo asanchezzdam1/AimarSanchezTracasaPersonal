@@ -1,0 +1,59 @@
+<form [formGroup]="formulario" (ngSubmit)="rellenarRegistro(formulario)" novalidate >
+    <h1 class="display-6  mb-3" style="text-align: center;">Registro nuevo usuario</h1>
+    <div class="personas">
+        
+
+
+        <div class="form-floating mb-3" style="margin: 1%;">
+            <label for="floatingInput" style="color:black">Nombre:</label>
+        <input formControlName="nombre" type="text" class="form-control" name="nombre"
+            placeholder="Nombre" required maxlength="20">
+        
+        </div>
+        <div class="text-danger" *ngIf="formulario.get('nombre')?.errors && formulario.get('nombre')?.dirty">
+        <p *ngIf="formulario.get('nombre')?.hasError('required')" style="color:black"><small>Campo requerido</small></p>
+        </div>
+
+
+        <div class="form-floating mb-3" style="margin: 1%;">
+            <label for="floatingInput" style="color:black">Fecha de nacimiento:</label>
+            <input formControlName="fechaNacimiento" type="date" class="form-control"  name="fechaNacimiento"
+            placeholder="Fecha de nacimiento" required maxlength="20">
+            
+        </div>
+        <div class="text-danger" *ngIf="formulario.get('fechaNacimiento')?.errors && formulario.get('fechaNacimiento')?.dirty">
+            <p *ngIf="formulario.get('fechaNacimiento')?.hasError('required')" style="color:black"><small> requerido</small></p>
+        </div>
+
+        <div class="form-floating mb-3" style="margin: 1%;">
+            <label for="floatingInput" style="color:black">Teléfono:</label>
+            <input formControlName="telefono" type="text" class="form-control"  name="telefono"
+            placeholder="Telefono"  maxlength="20">
+            
+        </div>
+        <div class="text-danger" *ngIf="formulario.get('telefono')?.errors && formulario.get('telefono')?.dirty">
+        </div>
+
+        
+        
+
+        <button class="btn btn-outline-success w-100 py-2" type="submit" [disabled]="formulario.invalid">Registrarse</button>
+</div>
+  </form>
+
+  <div class="personas" >
+    <table style="text-align: left;">
+        <tbody >
+            <tr *ngFor='let persona of personas'>
+              
+              
+              <td><b>Nombre: </b> {{persona.nombre}}</td><br>
+              <td><b>Fecha de nacimiento: </b> {{persona.fechaNacimiento}}</td><br>
+              <td><b>Telefono: </b> {{persona.telefono}}</td>
+              
+          
+            </tr>
+            
+          </tbody>
+    </table>
+  </div>
