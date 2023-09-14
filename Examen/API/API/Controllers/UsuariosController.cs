@@ -5,9 +5,7 @@ using Modelos;
 
 namespace API.Controllers
 {
-    public class UsuariosController
-    {
-        [Route("api/usuarios")]
+       [Route("api/usuarios")]
         [ApiController]
         public class UsuariosControllerAPI : ControllerBase
         {
@@ -43,6 +41,5 @@ namespace API.Controllers
                 var usuarioVer = mapper.Map<UsuarioVerDto>(usuario);
                 return Ok(usuarioVer);
             }
-        }
-    }
+       }
 }

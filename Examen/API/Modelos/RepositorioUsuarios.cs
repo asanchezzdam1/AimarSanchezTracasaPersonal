@@ -14,7 +14,14 @@ namespace Modelos
 
         public async Task<Usuario> postUsuario(Usuario usuario)
         {
-
+            Usuario existeIdUsuario = context.usuarios.FirstOrDefault(m => m.id == usuario.id);
+            Usuario listaUsuario = new Usuario();
+            if (existeIdUsuario == null)
+            {
+                context.Add(usuario);
+                context.SaveChanges();
+            }
+            return usuario;
         }
         public IEnumerable<UsuarioVerDto> getUsuarios()
         {
