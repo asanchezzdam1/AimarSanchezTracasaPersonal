@@ -5,11 +5,11 @@ namespace Modelos
 {
     public class RepositorioUsuarios : IRepositorioUsuarios
     {
-        private readonly ContextoConversor _context;
+        private readonly ContextoConversor context;
 
         public RepositorioUsuarios(ContextoConversor context)
         {
-            _context = context;
+            this.context = context;
         }
 
         public async Task<Usuario> postUsuario(Usuario usuario)
@@ -20,8 +20,7 @@ namespace Modelos
         {
             var fechaMayor21 = DateTime.Now;
             fechaMayor21 = fechaMayor21.AddYears(-21);
-
-            var consultaLinq = from h in _context.usuarios
+            var consultaLinq = from h in context.usuarios
                         where h.fechaNacimiento < fechaMayor21
                         orderby h.nombre descending
                         select new UsuarioVerDto
